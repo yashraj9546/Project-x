@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rider's Lists</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body>
+    <div>
+        <button id="dropdownButton" class="m-4 text-5xl font-medium sm:hidden">&#8801;</button>
+    </div>
+        <!-- Dropdown Menu -->
+    <div id="dropdownMenu" class="hidden absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
+        <a href="cust.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Home</a>
+        <a href="settings.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Settings</a>
+         
+    </div>
+
+    <div class="hidden sm:block">
+        <ul class="sm:flex sm:flex-row sm:justify-center">
+            <li class="sm:text-xl sm:font-semibold sm:m-4 sm:mr-11"><a href="">Home</a></li>
+            <li class="sm:text-xl sm:font-semibold sm:m-4"><a href="">Settings</a></li>
+        </ul>
+    </div>
+</header>
+<hr class="w-xl hidden md:block">
+<main class= "mt-1">
+    <div class="m-5 pt-6 pb-6">
+        <h1 class="text-4xl font-bold text-black ">Hey</h1>
+        <h3 class="text-3xl font-semibold text-amber-300">Name</h3>
+    </div>
+
+    <p class="text-xl font-light text-center">Here is the list of auto-drivers available</p>
+</body>
+
+<script>
+    const button = document.getElementById('dropdownButton');
+    const menu = document.getElementById('dropdownMenu');
+
+    button.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+
+    // Close dropdown if clicked outside
+    window.addEventListener('click', (e) => {
+        if (!button.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.add('hidden');
+        }
+    });
+</script>
+</html>

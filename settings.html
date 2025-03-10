@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body>
+    <header class="flex">
+        <div>
+            <button id="dropdownButton" class="m-4 text-5xl font-medium sm:hidden">&#8801;</button>
+        </div>
+            <!-- Dropdown Menu -->
+        <div id="dropdownMenu" class="hidden absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
+            <a href="index.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Home</a>
+            <a href="settings.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Settings</a>
+             
+        </div>
+
+        <div class="hidden sm:block">
+            <ul class="sm:flex sm:flex-row sm:justify-center">
+                <li class="sm:text-xl sm:font-semibold sm:m-4 sm:mr-11"><a href="">Home</a></li>
+                <li class="sm:text-xl sm:font-semibold sm:m-4"><a href="">Settings</a></li>
+            </ul>
+        </div>
+        <h1 class="text-3xl mt-7">Settings</h1>
+    </header>
+    <hr class="w-4/5 mx-auto border-t-2 border-gray-500">
+    <main>
+        <div class="flex flex-row">
+            <div>
+                <img class="max-w-14 m-5 ml-8" src="../image/user.png" alt="image not found">
+            </div>
+            <div class="mt-5">
+                <h2 class="text-2xl">Name</h2>
+                <p>0000-000-000</p>
+            </div>
+        </div>
+    </main>
+    <hr class="w-4/5 mx-auto border-t-2 border-gray-500">
+    <footer>
+        <div class="flex flex-row">
+            <img class="max-w-8 m-5 ml-8 mt-8" src="../image/phone.png" alt="image not found">
+            <button class="text-2xl mt-4" onclick="showPopup()">Change number</button>
+
+            <div id="popup" class="hidden fixed inset-0 bg-opacity-100 flex justify-center items-center shadow-2xl">
+                <div class="bg-white p-6 rounded shadow-lg w-4/5">
+                    <h2 class="text-xl font-bold">Change your number</h2>
+                    <p class="mt-4">Enter your new number</p>
+                    <input type="text" class="bg-gray-100 mt-1 p-1 pl-3">
+                    <button onclick="closePopup()" class="mt-4 bg-red-500 text-white px-4 py-2 rounded">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-row">
+            <img class="max-w-8 m-5 ml-8 mt-8" src="../image/email.png" alt="image not found">
+            <button class="text-2xl mt-4" onclick="showPopup2()">Change email</button>
+
+            <div id="popup2" class="hidden fixed inset-0 bg-opacity-100 flex justify-center items-center shadow-2xl">
+                <div class="bg-white p-6 rounded shadow-lg w-4/5">
+                    <h2 class="text-xl font-bold">Change your email</h2>
+                    <p class="mt-4">Enter your new email</p>
+                    <input type="text" class="bg-gray-100 mt-1 p-1 pl-3">
+                    <button onclick="closePopup2()" class="mt-4 bg-red-500 text-white px-4 py-2 rounded">Close</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script>
+    const button = document.getElementById('dropdownButton');
+    const menu = document.getElementById('dropdownMenu');
+
+    button.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+
+    // Close dropdown if clicked outside
+    window.addEventListener('click', (e) => {
+        if (!button.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.add('hidden');
+        }
+    });
+
+    // Script for pop-up
+    function showPopup() {
+    document.getElementById("popup").classList.remove("hidden");
+    }
+
+    function closePopup() {
+        document.getElementById("popup").classList.add("hidden");
+         
+    }
+
+    // Close popup if clicking outside
+    window.addEventListener('click', (e) => {
+            if (!inputField2.contains(e.target) && !dropdownMenu2.contains(e.target)) {
+                dropdownMenu2.classList.add('hidden');
+            }
+        });
+
+    // Script for pop-up2
+    function showPopup2() {
+    document.getElementById("popup2").classList.remove("hidden");
+    }
+
+    function closePopup2() {
+        document.getElementById("popup2").classList.add("hidden");
+    }
+</script>
+
+<style>
+    .hidden { display: none; }
+    .fixed { position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+</html>
